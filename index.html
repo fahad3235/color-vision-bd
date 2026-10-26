@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Color Vision BD</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1 data-i18n="title">Color Vision BD</h1>
+    <p class="subtitle" data-i18n="subtitle">See any image the way colour-blind eyes see it</p>
+  </div>
+  <button id="lang-btn" type="button">Bangla</button>
+</header>
+<main>
+  <section class="controls" aria-label="controls">
+    <div class="field">
+      <label for="mode-select" data-i18n="mode">Vision type</label>
+      <select id="mode-select"></select>
+    </div>
+    <div class="field">
+      <label for="view-select" data-i18n="view">View</label>
+      <select id="view-select">
+        <option value="side" data-i18n="viewSide">Side by side</option>
+        <option value="slider" data-i18n="viewSlider">Compare slider</option>
+        <option value="sim" data-i18n="viewSim">Simulated only</option>
+      </select>
+    </div>
+    <button id="upload-btn" type="button" data-i18n="upload">Upload image</button>
+    <button id="sample-btn" type="button" data-i18n="sample">Use sample pattern</button>
+    <button id="download-btn" type="button" data-i18n="download">Download simulated PNG</button>
+    <input id="file-input" type="file" accept="image/*" hidden>
+  </section>
+
+  <div id="dropzone" class="dropzone"><span data-i18n="dropHint">Drop an image here, or use the upload button</span></div>
+  <p id="msg" class="msg" style="display:none"></p>
+
+  <section aria-label="comparison">
+    <h2><span data-i18n="origLabel">Original</span> / <span data-i18n="simLabel">Simulated</span> - <span id="mode-name"></span></h2>
+    <div id="stage" class="stage side">
+      <figure><figcaption data-i18n="origLabel">Original</figcaption><canvas id="canvas-original" width="640" height="360"></canvas></figure>
+      <figure id="sim-clip"><figcaption data-i18n="simLabel">Simulated</figcaption><canvas id="canvas-sim" width="640" height="360"></canvas></figure>
+    </div>
+    <input id="compare-range" type="range" min="0" max="100" value="50" style="display:none" aria-label="Compare slider">
+  </section>
+
+  <section class="pair" aria-label="colour pair checker">
+    <h2 data-i18n="pairTitle">Colour-pair checker</h2>
+    <p data-i18n="pairNote">Pick two colours. The checker shows how the pair looks under the selected vision type, and its WCAG contrast ratio before and after simulation.</p>
+    <div class="pair-inputs">
+      <label>Colour 1 <input id="pair-a" type="color" value="#e11d48"> <input id="pair-hex-a" type="text" value="#e11d48" maxlength="7"></label>
+      <label>Colour 2 <input id="pair-b" type="color" value="#16a34a"> <input id="pair-hex-b" type="text" value="#16a34a" maxlength="7"></label>
+    </div>
+    <div class="swatches">
+      <div><span data-i18n="origLabel">Original</span><div class="sw" id="sw-a"></div><div class="sw" id="sw-b"></div></div>
+      <div><span data-i18n="simLabel">Simulated</span> (<span id="pair-mode-note"></span>)<div class="sw" id="sw-a-sim"></div><div class="sw" id="sw-b-sim"></div></div>
+    </div>
+    <p><span data-i18n="contrast">Contrast</span> - <span data-i18n="origLabel">Original</span>: <strong id="contrast-orig"></strong></p>
+    <p><span data-i18n="contrast">Contrast</span> - <span data-i18n="simLabel">Simulated</span>: <strong id="contrast-sim"></strong></p>
+  </section>
+</main>
+<footer><p data-i18n="footer">Educational simulation only, not a medical diagnosis. Matrices: Machado et al. (2009). No image ever leaves your browser.</p></footer>
+<script src="js/color.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#111827;background:#f9fafb}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;background:#111827;color:#fff}
+.topbar h1{margin:0;font-size:26px}.subtitle{margin:4px 0 0;color:#d1d5db}
+button,select,input[type=text]{font-size:15px;padding:9px 12px;border:1px solid #d1d5db;border-radius:8px;background:#fff}
+button{cursor:pointer;background:#2563eb;color:#fff;border-color:#2563eb}button:hover{background:#1d4ed8}
+#lang-btn{background:#fff;color:#111827;border-color:#fff}
+main{max-width:1100px;margin:0 auto;padding:20px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-bottom:14px}
+.field{display:flex;flex-direction:column;gap:4px}.field label{font-weight:600;font-size:14px}
+.dropzone{border:2px dashed #9ca3af;border-radius:12px;padding:28px;text-align:center;color:#4b5563;background:#fff}
+.dropzone.drag{border-color:#2563eb;background:#eff6ff}
+.msg{padding:10px 12px;border-radius:8px}.msg.ok{background:#dcfce7}.msg.error{background:#fee2e2}
+.stage{display:flex;gap:16px;flex-wrap:wrap}.stage figure{margin:0;flex:1 1 300px;min-width:0}
+.stage figcaption{font-weight:600;margin-bottom:6px}
+.stage canvas{max-width:100%;height:auto;border:1px solid #d1d5db;border-radius:8px;background:#fff}
+.stage.slider{display:block;position:relative}.stage.slider figure{position:relative}
+.stage.slider #sim-clip{display:block;position:absolute;left:0;top:0;overflow:hidden;height:100%}
+.stage.slider #sim-clip canvas{max-width:none}
+.stage.slider #sim-clip figcaption{display:none}
+.stage.sim figure:first-child{display:none}
+#compare-range{width:100%;margin-top:12px}
+.pair{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;margin-top:24px}
+.pair-inputs{display:flex;flex-wrap:wrap;gap:16px}.pair-inputs label{font-weight:600}
+.swatches{display:flex;gap:32px;flex-wrap:wrap;margin:14px 0}
+.sw{width:120px;height:56px;border:1px solid #d1d5db;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;margin:6px 0;text-shadow:0 0 4px #fff}
+footer{padding:20px;text-align:center;color:#6b7280;font-size:14px}
+@media(max-width:500px){.topbar h1{font-size:21px}.stage{flex-direction:column}}
